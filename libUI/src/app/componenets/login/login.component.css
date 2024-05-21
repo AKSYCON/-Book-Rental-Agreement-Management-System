@@ -1,0 +1,6 @@
+.btn:hover{
+    opacity: 0.3;
+}
+.nav-item .btn:hover{
+    opacity: 1;
+}

@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg bg-danger p-2">
+    <div class="container-fluid">
+      <a class="navbar-brand" style="color: white;" routerLink="/allBook">Arham Library Center</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+                <a class="nav-link active btn btn-outline-dark m-2" style="color: white;" aria-current="page" routerLink="/allBook">Back</a>
+          </li>
+          <li class="nav-item">
+            <p class="mx-2 mt-3 text-light">Hello, Welcome  {{ this.authService.UserDet()?.name }}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container my-5">
+    <h1 class="mb-3 mt-2 text-center ">View Book</h1>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-10 bg-dark p-5" style="border-radius: 20px;color: white;">
+            <form #form="ngForm">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="bookDetails.name" disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="author" class="form-label">Author</label>
+                    <input type="text" class="form-control" id="author" name="author" [(ngModel)]="bookDetails.author" disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="genre" class="form-label">Genre</label>
+                    <input type="text" class="form-control" id="genre" name="genre" [(ngModel)]="bookDetails.genre" disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="rating" class="form-label">Rating</label>
+                    <input type="number" class="form-control" id="rating" name="rating" [(ngModel)]="bookDetails.rating" disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="available" class="form-label">Avaliable</label>
+                    <input type="text" class="form-control" id="available" name="available" [(ngModel)]="bookDetails.available" disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea type="text" class="form-control" id="description" name="description" [(ngModel)]="bookDetails.description" disabled cols="10" rows="6"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="lenderName" class="form-label">Lender Name</label>
+                    <input type="text" class="form-control" id="lenderName" name="lenderName" [(ngModel)]="bookDetails.lenderName" disabled>
+                </div>
+                <div class="mb-3"><button class="btn btn-info" (click)="save(bookDetails)">Borrow Book</button></div>
+            </form>
+        </div>
+    </div>
+</div>

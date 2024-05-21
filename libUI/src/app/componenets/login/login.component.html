@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg bg-danger">
+    <div class="container-fluid">
+      <a class="navbar-brand" style="color: white;" routerLink="/allBooks">Arham Library Center</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active btn btn-outline-dark" style="color: white;" aria-current="page" routerLink="/login">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+<p class="text-center fs-3" [ngClass]="hid ? 'text-success pb-1' : 'text-danger pb-1'">{{dis}}</p>
+
+<div class="d-flex justify-content-center mt-5" style="border-radius: 50px;padding: 30px;color: white;">
+
+    
+    <form class="col-lg-4 m-4 bg-dark p-4" style="border-radius: 50px;" [formGroup]="loginForm" (ngSubmit)="save()">
+        <h1>Login Form</h1>
+        <div class="form-group m-2">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email">
+            <div class="form-text text-danger" *ngIf="Email.errors?.['required'] && (Email.touched || Email.dirty)">
+                Required
+            </div>
+            <div class="form-text text-danger" *ngIf="Email.errors?.['email'] && Email.touched">
+                Invalid
+            </div>
+        </div>
+        <div class="form-group m-2">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" formControlName="password">
+            <div class="form-text text-danger" *ngIf="Password.errors?.['required'] && (Password.touched || Password.dirty)">
+                Required
+            </div>
+        </div>
+        <button type="submit" *ngIf="loginForm.invalid" [disabled]="loginForm.invalid" class="btn btn-danger m-2">&#9932;</button>
+        <button type="submit" *ngIf="!loginForm.invalid" class="btn btn-success m-2">Login</button>
+    </form>
+</div>

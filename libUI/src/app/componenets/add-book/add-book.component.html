@@ -1,0 +1,58 @@
+
+
+
+<nav class="navbar navbar-expand-lg bg-danger p-2">
+    <div class="container-fluid">
+      <a class="navbar-brand" style="color: white;" routerLink="/allBook">Arham Library Center</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+                <a class="nav-link active btn btn-outline-dark m-2" style="color: white;" aria-current="page" routerLink="/allBook">Back</a>
+          </li>
+          <li class="nav-item">
+            <p class="mx-2 mt-3 text-light">Hello, Welcome  {{ this.authService.UserDet()?.name }}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+<div class="d-flex justify-content-center mt-5">
+    
+    <form class="col-lg-4 m-4 bg-info p-4" style="border-radius: 50px;padding: 30px;color: white;font-size: 20px;" (ngSubmit)="addBook()">
+        <h2>Add Book</h2>
+    <div class="m-2">
+      <label for="name">Name:</label>
+      <input type="text" id="name" [(ngModel)]="newBook.name" name="name" style="width: 100%;" required>
+    </div>
+      
+    <div class="m-2">
+        <label for="author">Author:</label>
+      <input type="text" id="author" [(ngModel)]="newBook.author" name="author" style="width: 100%;" required>
+    </div>
+    <div class="m-2">
+        <label for="rating">Rating:</label>
+      <input type="number" id="author" [(ngModel)]="newBook.rating" name="rating" style="width: 100%;" required>
+    </div>
+    <div class="m-2">
+        <label for="genre">Genre:</label>
+      <input type="text" id="author" [(ngModel)]="newBook.genre" name="genre" style="width: 100%;" required>
+    </div>
+    <div class="m-2">
+        <label for="description">Description:</label>
+        <textarea type="text" id="author" [(ngModel)]="newBook.description" name="description" style="width: 100%;" cols="10" rows="6" required></textarea>
+    </div>
+     <div class="m-2">
+         <button type="submit" class="btn btn-dark" *ngIf="newBook.available == ''">Add Book</button>
+     </div>
+     <div class="m-2">
+        <p type="submit" class="text text-danger" *ngIf="newBook.available != ''">Added</p>
+    </div>
+    </form>
+  </div>
+  
